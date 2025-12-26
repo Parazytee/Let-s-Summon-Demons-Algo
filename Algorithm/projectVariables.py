@@ -1,0 +1,3 @@
+
+
+INITIAL_SOULS = 5
