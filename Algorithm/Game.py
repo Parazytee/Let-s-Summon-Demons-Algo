@@ -32,10 +32,11 @@ class Game:
 
     def InitializeDeck(self):
         # prend un json maybe?
+        self.ShuffleDeck(self.deck)
         return
 
-    def ShuffleDeck(self):
-        np.random.shuffle(self.deck)
+    def ShuffleDeck(self, deck):
+        np.random.shuffle(deck)
         return
 
     def GetTopCard(self):
@@ -46,10 +47,7 @@ class Game:
             self.block.append(self.deck.pop())
 
     def InitializeDemons(self):
-        return
-
-    def ShuffleDemons(self):
-        np.random.shuffle(self.demonDeck)
+        self.ShuffleDeck(self.demonDeck)
         return
 
     def DrawDemons(self):
@@ -61,18 +59,28 @@ class Game:
                 i.demons.append(self.DrawDemons())
         return
 
+    def CheckIfWin(self):
+        # idk how i'll manage this as it could be at any point.
+        return
+
+    def Roll(self):
+        result = 0
+        for i in range(0, const.NUMBER_OF_DICE):
+            result += np.random.randint(1, const.NUMBER_OF_FACES)
+        return result
+
     def PlayGame(self):
         self.players.append(pl.Player("Human", "Nora", bd.Board()))
 
         self.InitializeDeck()
         self.InitializeDemons()
-        self.ShuffleDeck()
-        self.ShuffleDemons()
         self.AssignDemons()
         self.FillBlock()
 
         while self.active:
             # do stuff here
+            self.Roll()
+            # Decision Aglo or player action here
             self.NextTurn()
 
         return
