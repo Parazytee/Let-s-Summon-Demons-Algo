@@ -1,16 +1,14 @@
-import projectVariables as const
 
 
 class Board:
-    def __init__(self,  souls=const.INITIAL_SOULS):
+    def __init__(self):
         self.cards = []
         self.demons = []
-        self.souls = souls
 
-    def addCards(self, card):
+    def AddCards(self, card):
         self.cards.append(card)
 
-    def addDemons(self, demon):
+    def AddDemons(self, demon):
         self.demons.append(demon)
 
     def print(self, obj=None):

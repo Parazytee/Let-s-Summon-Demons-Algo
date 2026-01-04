@@ -5,8 +5,13 @@ import Utility as U
 def EffectEV(ID):
     match ID:
         case 1:
-            SimpleSoulGenEV()
+            SoulGenEV()
 
 
-def SimpleSoulGenEV(soulsGained, number):
+def SoulGenEV(soulsGained, number):
     return soulsGained*U.D_DiceTotal(const.NUMBER_OF_DICE, const.NUMBER_OF_FACES, number)
+
+
+def StealSoulsEV():
+    # for all players in the game
+    return

@@ -1,9 +1,12 @@
 
+import numpy as np
 import Utility as U
 
 
 def main():
-    print(U.F_DiceTotal(2, 6, 2))
+    a = [1, 2, 3]
+
+    print(a.pop(4))
 
 
 main()
